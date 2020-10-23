@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="AntApp">
+	<target name="init">
+	<mkdir dir="classes"/>
+	</target>
+	
+	<target name="compile" depends = "init">
+		<javac srcdir="src" destdir="classes"></javac>
+		<javac srcdir="test" destdir="classes"></javac>
+	</target>
+
+    <target name="run" depends = "compile">
+		<java classname = "HelloWorld" classpath="classes">
+		<classpath refid="classpth"></classpath>
+		</java>      
+		<java classname = "com.multicampus.biz.user.UserServiceClient" classpath="classes">
+			<classpath refid="classpth"></classpath>
+		</java>           
+    </target>
+	
+	<path id="classpth">
+	<fileset dir="C:/Dev/lib"><include name ="*.jar"/></fileset>
+	</path>
+
+</project>
